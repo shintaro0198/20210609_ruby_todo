@@ -10,12 +10,8 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_self　まずはこのファイルを読み込むという記述 追加！
- *= require_tree app/assets以下のcssファイルを読み込んでいる　追加！
- *= require_path .
  */
 @import "bootstrap";
 @import "layouts.scss";
-.colorb{
-  background-color: blue;
-}
+@import "forms";
+@import "devise";
