@@ -25,6 +25,7 @@ gem 'turbolinks', '~> 5'
 gem "bootstrap", '~> 4.6.0'
 gem 'jquery-rails'
 gem 'devise'
+gem 'acts_as_list', '~> 0.9.19'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
