@@ -1,5 +1,7 @@
 class TodosController < ApplicationController
-  before_action :set_todo, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :set_goal
+  before_action :set_todo, only: [:show, :edit, :update, :destroy, :sort]
 
   # GET /todos
   # def index
@@ -50,16 +52,16 @@ class TodosController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_goal
-      @goal = current_user.goalsfind_by(id: params[:goal_id])
+      @goal = current_user.goals.find_by(id: params[:goal_id])
       redirect_to(goals_url, alert: "ERROE!!") if @goal.blank?
     end
 
     def set_todo
-      @todo = @goal.todos.find_by(params[:id])
+      @todo = @goal.todos.find_by(id: params[:id])
     end
 
 
     def todo_params
-      params.require(:todo).permit(:content, :goal_id, :position, :done)
+      params.require(:todo).permit(:content, :goal_id, :position, :done, tag_ids:[])
     end
 end
