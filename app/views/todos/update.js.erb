@@ -1,9 +1,7 @@
-// モーダルを閉じる処理
 $("#goalModal").modal("hide");
 $('body').removeClass('modal-open');
 $('.modal-backdrop').remove();
 
-// Rails @status => true 画面の書き換え : false モーダルを再度表示
 <% if @status %>
 $('[data-model_name="goal"]').filter('[data-id="<%= @goal.id %>"]').find(".todo-cards").html("<%= j(render partial: 'todos/todo', collection: @goal.todos, as: :todo) %>");
 
